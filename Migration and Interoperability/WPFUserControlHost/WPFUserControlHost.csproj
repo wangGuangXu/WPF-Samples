@@ -2,6 +2,7 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B6555C55-1AB9-426D-A415-555776FA2ACB}</ProjectGuid>
@@ -80,6 +81,7 @@
     <ProjectReference Include="..\HostingWpfUserControlInWf\HostingWpfUserControlInWf.csproj">
       <Project>{158d6826-38d9-49b0-a6ca-a46df7be03e3}</Project>
       <Name>HostingWpfUserControlInWf</Name>
+      <SetTargetFramework>TargetFramework=$(TargetFramework)</SetTargetFramework>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -5,30 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DataBindingDemo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="List of Products" SizeToContent="WidthAndHeight">
     <Window.Resources>
-        <Style TargetType="{x:Type ListBoxItem}">
-            <Style.Triggers>
-                <Trigger Property="Selector.IsSelected" Value="True">
-                    <Setter Property="Background" Value="Moccasin" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
+            <DataTemplate x:Key="GroupingHeaderTemplate">
+                <TextBlock Text="{Binding Path=Name}" Style="{StaticResource GroupHeaderStyle}"/>
+            </DataTemplate>
 
-        <DataTemplate x:Key="GroupingHeaderTemplate">
-            <TextBlock Text="{Binding Path=Name}"
-                       Foreground="Navy" FontWeight="Bold" FontSize="12" />
-        </DataTemplate>
-
-        <Style x:Key="CheckBoxStyle" TargetType="{x:Type CheckBox}">
-            <Setter Property="Foreground" Value="#333333" />
-            <Setter Property="FontWeight" Value="Bold" />
-        </Style>
-
-        <CollectionViewSource
-            Source="{Binding Source={x:Static Application.Current}, Path=AuctionItems}"
-            x:Key="ListingDataView" />
-
+            <CollectionViewSource
+                Source="{Binding Source={x:Static Application.Current}, Path=AuctionItems}"
+                x:Key="ListingDataView" />
     </Window.Resources>
 
     <Grid>
@@ -60,14 +45,14 @@
                   Margin="8" Style="{StaticResource CheckBoxStyle}">
             Show only bargains
         </CheckBox>
-        <CheckBox Name="Sorting" Grid.Row="1" Grid.Column="3"
+        <CheckBox Name="Sorting" Grid.Row="1" Grid.Column="2"
                   Checked="AddSorting" Unchecked="RemoveSorting"
                   Margin="8" Style="{StaticResource CheckBoxStyle}">
             Sort by category and date
         </CheckBox>
 
 
-        <ListBox Name="Master" Grid.Row="2" Grid.ColumnSpan="3" Margin="8"
+        <ListBox Name="Master" AutomationProperties.Name="Master" Grid.Row="2" Grid.ColumnSpan="3" Margin="8"
                  ItemsSource="{Binding Source={StaticResource ListingDataView}}">
             <ListBox.GroupStyle>
                 <GroupStyle

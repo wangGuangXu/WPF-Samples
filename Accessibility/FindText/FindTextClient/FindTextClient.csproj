@@ -2,6 +2,7 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{647FA8AF-1B65-4205-B3A7-1D3599F31489}</ProjectGuid>
@@ -86,6 +87,7 @@
     <ProjectReference Include="..\FindText\FindText.csproj">
       <Project>{117631d2-3687-49d6-bd15-7b9a21b4399a}</Project>
       <Name>FindText</Name>
+      <SetTargetFramework>TargetFramework=$(TargetFramework)</SetTargetFramework>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

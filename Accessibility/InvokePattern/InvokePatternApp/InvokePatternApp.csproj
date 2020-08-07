@@ -2,6 +2,7 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F587C78A-A345-4DB9-A86D-C186BEBBD1F9}</ProjectGuid>
@@ -87,6 +88,7 @@
     <ProjectReference Include="..\Target\Target.csproj">
       <Project>{d8d81cbf-c254-42d6-bba3-5a32150b70f1}</Project>
       <Name>Target</Name>
+      <SetTargetFramework>TargetFramework=$(TargetFramework)</SetTargetFramework>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
